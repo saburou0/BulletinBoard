@@ -8,13 +8,15 @@ const mongoose = require("mongoose");
 const PORT = 8000;
 const Thread = require("./models/Thread");
 
+const MONGODB_URI = "mongodb+srv://akira:saburou2231@cluster0.6ax09y8.mongodb.net/threads?retryWrites=true&w=majority&appName=Cluster0"
+
 //静的なファイルはpublicフォルダを参照
 app.use(express.json());
 app.use(express.static("public"));
 
 
 // データベース接続
-mongoose.connect("mongodb+srv://akira:saburou2231@cluster0.6ax09y8.mongodb.net/threads?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(MONGODB_URI
 ).then(() => console.log("DataBase Running!"))
 .catch((err) => console.log(err));
 
