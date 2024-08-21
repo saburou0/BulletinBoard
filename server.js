@@ -5,6 +5,7 @@ const app = express();
 // mongoseをインポート
 const mongoose = require("mongoose");
 // PORT番号を指定
+require('dotenv').config();
 const port = process.env.PORT;
 const Thread = require("./models/Thread");
 
