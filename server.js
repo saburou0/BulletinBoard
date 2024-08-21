@@ -5,10 +5,10 @@ const app = express();
 // mongoseをインポート
 const mongoose = require("mongoose");
 // PORT番号を指定
-const PORT = 8000;
+const port = process.env.PORT;
 const Thread = require("./models/Thread");
 
-const MONGODB_URI = "mongodb+srv://akira:saburou2231@cluster0.6ax09y8.mongodb.net/threads?retryWrites=true&w=majority&appName=Cluster0"
+const MONGODB_URI = process.env.DATABASE_URL;
 
 //静的なファイルはpublicフォルダを参照
 app.use(express.json());
@@ -40,6 +40,6 @@ app.post("/api/vi/thread", async(req,res) => {
     }
 });
 
-app.listen(PORT, ()=>{
+app.listen(port, ()=>{
     console.log("Server running!");
 });
